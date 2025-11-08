@@ -1,0 +1,334 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.vscode-window-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    font-family: "Fira Code", monospace;
+    height: 100vh;
+    padding: 20px;
+}
+
+.vscode-window {
+    width: 80%;
+    max-width: 1000px;
+    height: 65%;
+    background: #1e1e2f;
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.vscode-window .title-bar {
+    height: 32px;
+    background: #2c2c3e;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: #ccc;
+    font-size: 0.85em;
+}
+
+.vscode-window .window-controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 12px;
+}
+
+.vscode-window .title-bar .title-text {
+    margin-left: auto;
+    padding-left: 8px;
+}
+
+.vscode-window .window-controls div.close,
+.vscode-window .window-controls div.minimize,
+.vscode-window .window-controls div.maximize {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.vscode-window .window-controls div.close:hover,
+.vscode-window .window-controls div.minimize:hover,
+.vscode-window .window-controls div.maximize:hover {
+    transform: scale(1.2);
+}
+.vscode-window .close {
+    background: #ff5f56;
+}
+.vscode-window .minimize {
+    background: #ffbd2e;
+}
+.vscode-window .maximize {
+    background: #27c93f;
+}
+
+.vscode-window .tabs {
+    display: flex;
+    background: #252536;
+    border-bottom: 1px solid #444;
+}
+
+.vscode-window .tabs label.l {
+    padding: 8px 18px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition:
+            background 0.2s,
+            color 0.2s;
+}
+
+.vscode-window .tabs label.l:hover {
+    background: #2c2c3e;
+    color: #fff;
+}
+
+.vscode-window input.i[name="tab"] {
+    display: none;
+}
+
+.vscode-window #tab-html:checked ~ .tabs label.l[for="tab-html"],
+.vscode-window #tab-css:checked ~ .tabs label.l[for="tab-css"] {
+    background: #1e1e2f;
+    color: #fff;
+    border-bottom: 2px solid #007acc;
+}
+
+.vscode-window .code-panel {
+    flex: 1;
+    background: #1e1e2f;
+    color: #d4d4d4;
+    padding: 15px;
+    font-family: "Fira Code", monospace;
+    font-size: 0.9em;
+    overflow-y: auto;
+    line-height: 1.4em;
+}
+
+.vscode-window .panel {
+    display: none;
+}
+
+.vscode-window #tab-html:checked ~ .code-panel #html-panel,
+.vscode-window #tab-css:checked ~ .code-panel #css-panel {
+    display: block;
+}
+
+.vscode-window .keyword {
+    color: #569cd6;
+}
+.vscode-window .string {
+    color: #d69d85;
+}
+.vscode-window .comment {
+    color: #6a9955;
+    font-style: italic;
+}
+.vscode-window .attr {
+    color: #9cdcfe;
+}
+.vscode-window .value {
+    color: #dcdcaa;
+}
+
+.ui-link {
+    --btn-transition: .3s;
+    --btn-letter-spacing: .1rem;
+    --btn-animation-duration: 1.2s;
+    --hover-btn-color: #FAC921;
+    --default-btn-color: #569cd6;
+    --font-size: inherit;
+    --font-weight: 600;
+    --font-family: "Fira Code", monospace;
+}
+
+.ui-link {
+    color: var(--default-btn-color);
+    font-weight: var(--font-weight);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--btn-transition);
+    display: inline;
+    position: relative;
+}
+
+.ui-link span {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    letter-spacing: var(--btn-letter-spacing);
+    transition: color 0s;
+    transition-delay: var(--btn-animation-duration);
+    z-index: 1;
+}
+
+.ui-link span::before {
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: pre;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: var(--btn-letter-spacing);
+    text-align: center;
+    content: "";
+    pointer-events: none;
+    color: var(--hover-btn-color);
+    z-index: 2;
+}
+
+.title-text.ui-link {
+    --btn-animation-duration: 2.4s;
+}
+
+.title-text.ui-link span {
+    color: var(--hover-btn-color);
+    transition: color 0s;
+    transition-delay: 0s;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    overflow: visible;
+}
+
+.title-text.ui-link:hover span,
+.title-text.ui-link:focus span {
+    color: transparent;
+    transition-delay: 0s;
+    animation: revealText 0s var(--btn-animation-duration) forwards;
+}
+
+.title-text.ui-link span::before,
+.title-text.ui-link:hover span::before,
+.title-text.ui-link:focus span::before {
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: pre;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: var(--btn-letter-spacing);
+    text-align: center;
+    content: "";
+    pointer-events: none;
+    z-index: 2;
+    color: var(--hover-btn-color);
+}
+
+.title-text.ui-link:hover span::before,
+.title-text.ui-link:focus span::before {
+    animation: chitchat-long linear both var(--btn-animation-duration);
+}
+
+@keyframes chitchat-long {
+    0% { content: "##############"; }
+    8% { content: "..--..--..--.."; }
+    16% { content: "^{-!#$_№:0#{+"; }
+    24% { content: "@}-??{4@%==.,^"; }
+    32% { content: "!?2@%\\;1}]?{%:"; }
+    40% { content: "%|{f[4{4%0%'1_0<"; }
+    48% { content: "{0%]>'4 22 00!!"; }
+    56% { content: "~!@#$$%^&*()_+"; }
+    64% { content: "<>?:{}[]\/|~`--"; }
+    72% { content: "=.,^!??2@%\\;1}]"; }
+    80% { content: "?{%:%|{f[4{4%0%"; }
+    88% { content: "'1_0<{0%]>'42  "; }
+    100% { content: ""; }
+}
+
+@keyframes revealText {
+    to {
+        color: var(--hover-btn-color);
+    }
+}
+
+@keyframes chitchat {
+    0% { content: "#"; }
+    5% { content: "."; }
+    10% { content: "^{"; }
+    15% { content: "-!"; }
+    20% { content: "#$_"; }
+    25% { content: "№:0"; }
+    30% { content: "#{+."; }
+    35% { content: "@}-?"; }
+    40% { content: "?{4@%"; }
+    45% { content: "=.,^!"; }
+    50% { content: "?2@%"; }
+    55% { content: "\;1}]"; }
+    60% { content: "?{%:%"; right: 0; }
+    65% { content: "|{f[4"; right: 0; }
+    70% { content: "{4%0%"; right: 0; }
+    75% { content: "'1_0<"; right: 0; }
+    80% { content: "{0%"; right: 0; }
+    85% { content: "]>'"; right: 0; }
+    90% { content: "4"; right: 0; }
+    95% { content: "2"; right: 0; }
+    100% { content: ""; right: 0; }
+}
+
+.ui-link:hover span,
+.ui-link:focus span {
+    color: transparent;
+    transition-delay: 0s;
+    animation: revealText 0s var(--btn-animation-duration) forwards;
+}
+
+.ui-link:hover span::before,
+.ui-link:focus span::before {
+    color: var(--hover-btn-color);
+    animation: chitchat linear both var(--btn-animation-duration);
+}
+
+.code-panel .ui-link:hover span,
+.code-panel .ui-link:focus span {
+    color: transparent;
+    transition-delay: 0s;
+    animation: revealText 0s var(--btn-animation-duration) forwards;
+}
+
+.code-panel .ui-link:hover span::before,
+.code-panel .ui-link:focus span::before {
+    color: var(--hover-btn-color);
+    animation: chitchat linear both var(--btn-animation-duration);
+}
+
+.ui-link span:hover,
+.ui-link span:focus {
+    color: transparent;
+    transition-delay: 0s;
+    animation: revealText 0s var(--btn-animation-duration) forwards;
+}
+
+.ui-link span:hover::before,
+.ui-link span:focus::before {
+    color: var(--hover-btn-color);
+    animation: chitchat linear both var(--btn-animation-duration);
+}
+
+.title-text.ui-link span:hover,
+.title-text.ui-link span:focus {
+    color: transparent;
+    transition-delay: 0s;
+    animation: revealText 0s var(--btn-animation-duration) forwards;
+}
+
+.title-text.ui-link span:hover::before,
+.title-text.ui-link span:focus::before {
+    color: var(--hover-btn-color);
+    animation: chitchat-long linear both var(--btn-animation-duration);
+}
