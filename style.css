@@ -102,7 +102,8 @@ a {
 }
 
 .vscode-window #tab-html:checked ~ .tabs label.l[for="tab-html"],
-.vscode-window #tab-css:checked ~ .tabs label.l[for="tab-css"] {
+.vscode-window #tab-css:checked ~ .tabs label.l[for="tab-css"],
+.vscode-window #tab-js:checked ~ .tabs label.l[for="tab-js"] {
     background: #1e1e2f;
     color: #fff;
     border-bottom: 2px solid #007acc;
@@ -124,7 +125,8 @@ a {
 }
 
 .vscode-window #tab-html:checked ~ .code-panel #html-panel,
-.vscode-window #tab-css:checked ~ .code-panel #css-panel {
+.vscode-window #tab-css:checked ~ .code-panel #css-panel,
+.vscode-window #tab-js:checked ~ .code-panel #js-panel {
     display: block;
 }
 
