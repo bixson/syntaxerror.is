@@ -2,6 +2,11 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
+a {
+    color: var(--hover-btn-color);
+}
+
 .vscode-window-container {
     display: flex;
     justify-content: center;
